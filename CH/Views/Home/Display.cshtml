@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display</title>
+</head>
+<body>
+    <div>
+        <label id="lblMainText"></label>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+    getText();
+    });
+
+    function getText()
+    {
+        $.ajax({
+            url: "/api/Hello/",
+            dataType: "json",
+            type: "GET",
+            success: function (text)
+            {
+                $('#lblMainText').text(text);
+            }
+        });
+    }
+        </script>
